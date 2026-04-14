@@ -1,4 +1,9 @@
 """Unit Converter AI MCP Server — Unit conversion tools."""
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import time
 from typing import Any
 from mcp.server.fastmcp import FastMCP
@@ -28,8 +33,12 @@ WEIGHT_TO_KG = {
 }
 
 @mcp.tool()
-def convert_length(value: float, from_unit: str, to_unit: str) -> dict[str, Any]:
+def convert_length(value: float, from_unit: str, to_unit: str, api_key: str = "") -> dict[str, Any]:
     """Convert between length units: mm, cm, m, km, inch, foot, yard, mile, nautical_mile, light_year."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("convert_length"):
         return {"error": "Rate limit exceeded (50/day)"}
     if from_unit not in LENGTH_TO_METERS or to_unit not in LENGTH_TO_METERS:
@@ -43,8 +52,12 @@ def convert_length(value: float, from_unit: str, to_unit: str) -> dict[str, Any]
     }
 
 @mcp.tool()
-def convert_weight(value: float, from_unit: str, to_unit: str) -> dict[str, Any]:
+def convert_weight(value: float, from_unit: str, to_unit: str, api_key: str = "") -> dict[str, Any]:
     """Convert between weight units: mg, g, kg, tonne, oz, lb, stone, ton_us, ton_uk."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("convert_weight"):
         return {"error": "Rate limit exceeded (50/day)"}
     if from_unit not in WEIGHT_TO_KG or to_unit not in WEIGHT_TO_KG:
@@ -58,8 +71,12 @@ def convert_weight(value: float, from_unit: str, to_unit: str) -> dict[str, Any]
     }
 
 @mcp.tool()
-def convert_temperature(value: float, from_unit: str, to_unit: str) -> dict[str, Any]:
+def convert_temperature(value: float, from_unit: str, to_unit: str, api_key: str = "") -> dict[str, Any]:
     """Convert between temperature units: celsius, fahrenheit, kelvin, rankine."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("convert_temperature"):
         return {"error": "Rate limit exceeded (50/day)"}
     units = {"celsius", "fahrenheit", "kelvin", "rankine"}
@@ -85,8 +102,12 @@ def convert_temperature(value: float, from_unit: str, to_unit: str) -> dict[str,
     }
 
 @mcp.tool()
-def convert_currency_data(value: float, from_currency: str, to_currency: str) -> dict[str, Any]:
+def convert_currency_data(value: float, from_currency: str, to_currency: str, api_key: str = "") -> dict[str, Any]:
     """Convert currency using static reference rates (for estimation only). Use live API for production."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("convert_currency_data"):
         return {"error": "Rate limit exceeded (50/day)"}
     # Static rates vs USD (approximate)

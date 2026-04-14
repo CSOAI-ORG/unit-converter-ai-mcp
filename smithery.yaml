@@ -1,10 +1,55 @@
 name: unit-converter-ai-mcp
-description: "MEOK AI Labs — Unit Converter tools for AI agents and LLMs"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/unit-converter-ai-mcp
-license: MIT
-categories: [Utilities, Science]
-tags: [unit-conversion, measurement, metric-imperial, physics-units, engineering-units]
-runtime: python
-entrypoint: server.py
+description: MCP server for unit conversion tools.
+version: 1.0.0
+tools:
+- name: convert_length
+  description: 'Convert between length units: mm, cm, m, km, inch, foot, yard, mile,
+    nautical_mile, light_year.'
+  parameters:
+  - name: value
+    type: number
+    required: true
+  - name: from_unit
+    type: string
+    required: true
+  - name: to_unit
+    type: string
+    required: true
+- name: convert_weight
+  description: 'Convert between weight units: mg, g, kg, tonne, oz, lb, stone, ton_us,
+    ton_uk.'
+  parameters:
+  - name: value
+    type: number
+    required: true
+  - name: from_unit
+    type: string
+    required: true
+  - name: to_unit
+    type: string
+    required: true
+- name: convert_temperature
+  description: 'Convert between temperature units: celsius, fahrenheit, kelvin, rankine.'
+  parameters:
+  - name: value
+    type: number
+    required: true
+  - name: from_unit
+    type: string
+    required: true
+  - name: to_unit
+    type: string
+    required: true
+- name: convert_currency_data
+  description: Convert currency using static reference rates (for estimation only).
+    Use live API for production.
+  parameters:
+  - name: value
+    type: number
+    required: true
+  - name: from_currency
+    type: string
+    required: true
+  - name: to_currency
+    type: string
+    required: true
