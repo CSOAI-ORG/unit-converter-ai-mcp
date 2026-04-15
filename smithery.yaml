@@ -1,5 +1,6 @@
 name: unit-converter-ai-mcp
-description: MEOK AI Labs MCP Server
+description: AI-powered unit converter ai MCP server for agents. Supports convert
+  length, convert weight, convert temperature. By MEOK AI Labs.
 version: 1.0.0
 tools:
 - name: convert_length
