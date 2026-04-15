@@ -8,6 +8,19 @@ import time
 from typing import Any
 from mcp.server.fastmcp import FastMCP
 
+import json
+from datetime import datetime, timezone
+from collections import defaultdict
+
+FREE_DAILY_LIMIT = 15
+_usage = defaultdict(list)
+def _rl(c="anon"):
+    now = datetime.now(timezone.utc)
+    _usage[c] = [t for t in _usage[c] if (now-t).total_seconds() < 86400]
+    if len(_usage[c]) >= FREE_DAILY_LIMIT: return json.dumps({"error": f"Limit {FREE_DAILY_LIMIT}/day"})
+    _usage[c].append(now); return None
+
+
 mcp = FastMCP("unit-converter-ai", instructions="MEOK AI Labs MCP Server")
 _calls: dict[str, list[float]] = {}
 DAILY_LIMIT = 50
@@ -38,6 +51,7 @@ def convert_length(value: float, from_unit: str, to_unit: str, api_key: str = ""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("convert_length"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -57,6 +71,7 @@ def convert_weight(value: float, from_unit: str, to_unit: str, api_key: str = ""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("convert_weight"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -76,6 +91,7 @@ def convert_temperature(value: float, from_unit: str, to_unit: str, api_key: str
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("convert_temperature"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -107,6 +123,7 @@ def convert_currency_data(value: float, from_currency: str, to_currency: str, ap
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("convert_currency_data"):
         return {"error": "Rate limit exceeded (50/day)"}
