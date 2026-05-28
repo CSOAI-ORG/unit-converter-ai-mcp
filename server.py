@@ -1,7 +1,6 @@
 """Unit Converter AI MCP Server — Unit conversion tools."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import time
@@ -11,6 +10,15 @@ from mcp.server.fastmcp import FastMCP
 import json
 from datetime import datetime, timezone
 from collections import defaultdict
+
+STRIPE_199 = "https://buy.stripe.com/00wfZjcgAeUW4c5cyQ8k90K"
+
+def _add_upgrade_tail(response, tier="free"):
+    """Append upgrade nudge to free-tier success responses."""
+    if isinstance(response, dict) and tier == "free":
+        response["_upgrade_note"] = "Pro tier: unlimited calls + priority support. Upgrade: " + STRIPE_199
+    return response
+
 
 FREE_DAILY_LIMIT = 15
 _usage = defaultdict(list)
@@ -50,7 +58,7 @@ def convert_length(value: float, from_unit: str, to_unit: str, api_key: str = ""
     """Convert between length units: mm, cm, m, km, inch, foot, yard, mile, nautical_mile, light_year."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("convert_length"):
@@ -70,7 +78,7 @@ def convert_weight(value: float, from_unit: str, to_unit: str, api_key: str = ""
     """Convert between weight units: mg, g, kg, tonne, oz, lb, stone, ton_us, ton_uk."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("convert_weight"):
@@ -90,7 +98,7 @@ def convert_temperature(value: float, from_unit: str, to_unit: str, api_key: str
     """Convert between temperature units: celsius, fahrenheit, kelvin, rankine."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("convert_temperature"):
@@ -122,7 +130,7 @@ def convert_currency_data(value: float, from_currency: str, to_currency: str, ap
     """Convert currency using static reference rates (for estimation only). Use live API for production."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": STRIPE_199}
     if err := _rl(): return err
 
     if not _rate_check("convert_currency_data"):
@@ -147,5 +155,8 @@ def convert_currency_data(value: float, from_currency: str, to_currency: str, ap
         "warning": "Static reference rates for estimation. Use live rates for transactions."
     }
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()
