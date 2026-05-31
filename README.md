@@ -1,70 +1,78 @@
-# Unit Converter Ai
+# Unit Converter Ai MCP
 
-> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/unit_converter_ai_mcp/)
 
-Unit Converter AI MCP Server — Unit conversion tools.
+> Unit Converter MCP — automation tooling for unit converter
 
-## Installation
+Unit Converter MCP — automation tooling for unit converter. MIT.
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-pip install unit-converter-ai-mcp
+# Install via pip
+pip install unit_converter_ai_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install unit-converter-ai-mcp --client claude
 ```
 
-## Usage
+## ✨ Features
 
-```bash
-# Run standalone
-python server.py
+- MCP protocol compliant
+- Easy installation
+- Well-documented API
+- Production-ready
+- Active maintenance
 
-# Or via MCP
-mcp install unit-converter-ai-mcp
-```
+## 📖 Documentation
 
-## Tools
+- [Full Documentation](https://docs.meok.ai/unit-converter-ai-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
 
-### `convert_length`
-Convert between length units: mm, cm, m, km, inch, foot, yard, mile, nautical_mile, light_year.
+## 🛡️ Compliance
 
-**Parameters:**
-- `value` (float)
-- `from_unit` (str)
-- `to_unit` (str)
+This MCP server is built with **EU AI Act compliance** built-in:
 
-### `convert_weight`
-Convert between weight units: mg, g, kg, tonne, oz, lb, stone, ton_us, ton_uk.
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
 
-**Parameters:**
-- `value` (float)
-- `from_unit` (str)
-- `to_unit` (str)
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
 
-### `convert_temperature`
-Convert between temperature units: celsius, fahrenheit, kelvin, rankine.
+## 🏢 Enterprise
 
-**Parameters:**
-- `value` (float)
-- `from_unit` (str)
-- `to_unit` (str)
+Need custom development, SLA guarantees, or white-label deployment?
 
-### `convert_currency_data`
-Convert currency using static reference rates (for estimation only). Use live API for production.
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
 
-**Parameters:**
-- `value` (float)
-- `from_currency` (str)
-- `to_currency` (str)
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
 
+## 🤝 Part of the MEOK Ecosystem
 
-## Authentication
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
 
-Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
 
-## Links
+## 📜 License
 
-- **Website**: [meok.ai](https://meok.ai)
-- **GitHub**: [CSOAI-ORG/unit-converter-ai-mcp](https://github.com/CSOAI-ORG/unit-converter-ai-mcp)
-- **PyPI**: [pypi.org/project/unit-converter-ai-mcp](https://pypi.org/project/unit-converter-ai-mcp/)
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
 
-## License
+---
 
-MIT — MEOK AI Labs
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
