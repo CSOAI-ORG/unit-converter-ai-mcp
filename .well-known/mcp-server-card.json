@@ -1,0 +1,25 @@
+{
+  "name": "unit-converter-ai-mcp",
+  "title": "Unit Converter Ai Mcp",
+  "description": "AI-powered unit converter ai MCP server for agents. Supports convert length, convert weight, convert temperature. By MEOK AI Labs.",
+  "version": "1.0.5",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "convert_length"
+    },
+    {
+      "name": "convert_weight"
+    },
+    {
+      "name": "convert_temperature"
+    },
+    {
+      "name": "convert_currency_data"
+    }
+  ]
+}

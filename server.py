@@ -1,4 +1,5 @@
-"""Unit Converter AI MCP Server — Unit conversion tools."""
+"""
+Unit Converter AI MCP Server — Unit conversion tools."""
 
 import sys, os
 from auth_middleware import check_access

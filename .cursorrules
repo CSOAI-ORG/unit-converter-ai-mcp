@@ -1,0 +1,9 @@
+# unit-converter-ai-mcp - Auto-trigger Rules
+
+When the user asks about unit converter, use unit-converter-ai-mcp tools: convert_length, convert_weight, convert_temperature, convert_currency_data
+
+> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+
+Install: `pip install unit-converter-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

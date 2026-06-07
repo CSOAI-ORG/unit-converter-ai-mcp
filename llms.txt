@@ -1,31 +1,33 @@
-# Unit Converter Ai MCP
-
-> Unit Converter MCP — automation tooling for unit converter
-
-`unit-converter-ai-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+# unit-converter-ai-mcp
+# > By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
 
 ## Install
-
 ```bash
 pip install unit-converter-ai-mcp
 ```
 
-Or run without installing:
-
-```bash
-uvx unit-converter-ai-mcp
-```
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
 
 ## Tools
 
-- `convert_length` — Convert between length units: mm, cm, m, km, inch, foot, yard, mile, nautical_mile, light_year.
-- `convert_weight` — Convert between weight units: mg, g, kg, tonne, oz, lb, stone, ton_us, ton_uk.
-- `convert_temperature` — Convert between temperature units: celsius, fahrenheit, kelvin, rankine.
-- `convert_currency_data` — Convert currency using static reference rates (for estimation only). Use live API for production.
+### `convert_length`
+Convert between length units: mm, cm, m, km, inch, foot, yard, mile, nautical_mile, light_year.
 
-## Links
+### `convert_weight`
+Convert between weight units: mg, g, kg, tonne, oz, lb, stone, ton_us, ton_uk.
 
-- Source: https://github.com/CSOAI-ORG/unit-converter-ai-mcp
-- PyPI: https://pypi.org/project/unit-converter-ai-mcp/
-- MEOK AI Labs: https://meok.ai
-- Council of AI: https://councilof.ai
+### `convert_temperature`
+Convert between temperature units: celsius, fahrenheit, kelvin, rankine.
+
+### `convert_currency_data`
+Convert currency using static reference rates (for estimation only). Use live API for production.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

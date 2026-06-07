@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.json",
+  "name": "io.github.CSOAI-ORG/unit-converter-ai-mcp",
+  "description": "AI-powered unit converter ai MCP server for agents. Supports convert length, convert weight, convert temperature. By MEOK AI Labs.",
+  "version": "1.0.5",
+  "repository": {
+    "url": "https://github.com/CSOAI-ORG/unit-converter-ai-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registry_type": "pypi",
+      "identifier": "unit-converter-ai-mcp",
+      "version": "1.0.5",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
