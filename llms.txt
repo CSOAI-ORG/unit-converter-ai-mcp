@@ -1,0 +1,31 @@
+# Unit Converter Ai MCP
+
+> Unit Converter MCP — automation tooling for unit converter
+
+`unit-converter-ai-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+
+## Install
+
+```bash
+pip install unit-converter-ai-mcp
+```
+
+Or run without installing:
+
+```bash
+uvx unit-converter-ai-mcp
+```
+
+## Tools
+
+- `convert_length` — Convert between length units: mm, cm, m, km, inch, foot, yard, mile, nautical_mile, light_year.
+- `convert_weight` — Convert between weight units: mg, g, kg, tonne, oz, lb, stone, ton_us, ton_uk.
+- `convert_temperature` — Convert between temperature units: celsius, fahrenheit, kelvin, rankine.
+- `convert_currency_data` — Convert currency using static reference rates (for estimation only). Use live API for production.
+
+## Links
+
+- Source: https://github.com/CSOAI-ORG/unit-converter-ai-mcp
+- PyPI: https://pypi.org/project/unit-converter-ai-mcp/
+- MEOK AI Labs: https://meok.ai
+- Council of AI: https://councilof.ai
