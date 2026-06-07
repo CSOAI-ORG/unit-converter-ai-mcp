@@ -1,0 +1,59 @@
+{
+  "name": "unit-converter-ai-mcp",
+  "description": "AI-powered unit converter ai MCP server for agents. Supports convert length, convert weight",
+  "url": "https://proofof.ai/scorecard/unit-converter-ai-mcp.html",
+  "version": "1.0.5",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "convert_length",
+      "name": "Convert Length",
+      "description": "convert_length via unit-converter-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "convert_weight",
+      "name": "Convert Weight",
+      "description": "convert_weight via unit-converter-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "convert_temperature",
+      "name": "Convert Temperature",
+      "description": "convert_temperature via unit-converter-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "convert_currency_data",
+      "name": "Convert Currency Data",
+      "description": "convert_currency_data via unit-converter-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}

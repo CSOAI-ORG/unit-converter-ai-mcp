@@ -1,0 +1,22 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "unit-converter-ai-mcp",
+    "description": "AI-powered unit converter ai MCP server for agents. Supports convert length, convert weight",
+    "version": "1.0.5",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "unit-converter-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "convert_length",
+      "convert_weight",
+      "convert_temperature",
+      "convert_currency_data"
+    ]
+  }
+}
